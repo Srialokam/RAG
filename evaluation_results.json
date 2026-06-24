@@ -1,0 +1,302 @@
+{
+  "score": 85.0,
+  "passed": 17,
+  "failed": 3,
+  "results": [
+    {
+      "question": "What is dbt?",
+      "answer": "dbt stands for data build tool and serves as the transformation layer in the modern data stack, allowing analytics engineers to write modular SQL and bring software engineering best practices to the data warehouse.",
+      "sources": [
+        "Page 1",
+        "Page 2",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "transformation",
+        "SQL",
+        "analytics"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the difference between dbt Core and dbt Cloud?",
+      "answer": "dbt Core is a free, open-source tool that is self-managed and uses a command line interface (CLI) for job scheduling, while dbt Cloud is a paid, managed SaaS tool that includes a managed UI/IDE and a built-in scheduler for job scheduling.",
+      "sources": [
+        "Page 22",
+        "Page 1",
+        "Page 2"
+      ],
+      "matched_keywords": [
+        "free",
+        "paid",
+        "CLI",
+        "managed"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the medallion architecture?",
+      "answer": "The Medallion Architecture organizes data transformations into three progressively refined layers: Bronze, Silver, and Gold.",
+      "sources": [
+        "Page 20",
+        "Page 9",
+        "Page 25",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "bronze",
+        "silver",
+        "gold"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is a dbt snapshot?",
+      "answer": "A dbt snapshot captures how rows change over time by maintaining dbt_valid_from and dbt_valid_to columns, implementing Slowly Changing Dimension Type 2 (SCD2) automatically.",
+      "sources": [
+        "Page 19",
+        "Page 1",
+        "Page 18"
+      ],
+      "matched_keywords": [
+        "SCD",
+        "dbt_valid_from",
+        "dbt_valid_to"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What does the ref() function do?",
+      "answer": "The ref() function is a dependency-aware table reference that creates directed edges in the DAG in dbt.",
+      "sources": [
+        "Page 25",
+        "Page 11",
+        "Page 26",
+        "Page 21"
+      ],
+      "matched_keywords": [
+        "dependency",
+        "reference"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the source() function?",
+      "answer": "The source() function is used to reference sources defined in the sources.yml file in dbt.",
+      "sources": [
+        "Page 11",
+        "Page 9",
+        "Page 25",
+        "Page 21"
+      ],
+      "matched_keywords": [
+        "source"
+      ],
+      "passed": false
+    },
+    {
+      "question": "What is dbt Canvas?",
+      "answer": "dbt Canvas is a visual drag-and-drop interface built into dbt Cloud.",
+      "sources": [
+        "Page 1",
+        "Page 2",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "drag",
+        "visual",
+        "cloud"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is Jinja in dbt?",
+      "answer": "Jinja turns SQL into a dynamic programming environment. It allows you to follow the DRY principle \u2014 write logic once, reuse everywhere.",
+      "sources": [
+        "Page 1",
+        "Page 14",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "dynamic",
+        "SQL"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is a dbt macro?",
+      "answer": "A dbt macro is a reusable piece of logic that can be used in your dbt project.",
+      "sources": [
+        "Page 14",
+        "Page 2",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "reusable"
+      ],
+      "passed": false
+    },
+    {
+      "question": "What does dbt build command do in dbt?",
+      "answer": "seed + run + test + snapshot in DAG order",
+      "sources": [
+        "Page 22",
+        "Page 24",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "seed",
+        "run",
+        "test",
+        "snapshot",
+        "DAG",
+        "order"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is generate_schema_name used for?",
+      "answer": "generate_schema_name is used to determine the schema name based on the environment (dev or prod) and whether a custom schema name is provided.",
+      "sources": [
+        "Page 22",
+        "Page 25",
+        "Page 23"
+      ],
+      "matched_keywords": [
+        "schema",
+        "prod"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What does dbt docs generate do?",
+      "answer": "dbt docs generate generates catalog.json + manifest.json in the target/ directory.",
+      "sources": [
+        "Page 24",
+        "Page 1",
+        "Page 21"
+      ],
+      "matched_keywords": [
+        "catalog",
+        "manifest"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is a DAG in dbt?",
+      "answer": "A DAG in dbt is a lineage graph, which is used for understanding and communicating the data pipeline.",
+      "sources": [
+        "Page 20",
+        "Page 22",
+        "Page 1",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "lineage"
+      ],
+      "passed": false
+    },
+    {
+      "question": "When should you use seeds in dbt?",
+      "answer": "Use seeds in dbt for country codes/ISO mappings.",
+      "sources": [
+        "Page 0",
+        "Page 13",
+        "Page 12"
+      ],
+      "matched_keywords": [
+        "mapping",
+        "codes"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What does dbt_valid_to null mean?",
+      "answer": "dbt_valid_to = null means the row is the CURRENT record. Filter WHERE dbt_valid_to IS NULL to get current state only.",
+      "sources": [
+        "Page 19",
+        "Page 16",
+        "Page 1",
+        "Page 17"
+      ],
+      "matched_keywords": [
+        "current",
+        "record"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the loop.last pattern?",
+      "answer": "The loop.last pattern is used to dynamically generate column lists without creating a trailing comma problem.",
+      "sources": [
+        "Page 20",
+        "Page 14",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "comma",
+        "column"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the Bronze layer?",
+      "answer": "The Bronze layer is the first layer of the Medallion Architecture, focused on Raw Ingestion with no transforms and a 1:1 relationship with the data source.",
+      "sources": [
+        "Page 10",
+        "Page 9",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "raw",
+        "source",
+        "ingestion"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the Silver layer?",
+      "answer": "The Silver layer is where data is cleansed, joined, and business logic is applied.",
+      "sources": [
+        "Page 10",
+        "Page 9",
+        "Page 11",
+        "Page 25"
+      ],
+      "matched_keywords": [
+        "cleansed",
+        "joined"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the Gold layer?",
+      "answer": "The Gold layer is the Consumption Ready layer in the Medallion Architecture, which includes aggregations, KPIs / SCDs, and is BI / ML ready.",
+      "sources": [
+        "Page 10",
+        "Page 22",
+        "Page 9"
+      ],
+      "matched_keywords": [
+        "aggregation",
+        "KPI"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is dbt test used for?",
+      "answer": "dbt test is used for running data quality assertions.",
+      "sources": [
+        "Page 16",
+        "Page 1",
+        "Page 0"
+      ],
+      "matched_keywords": [
+        "quality",
+        "assertion",
+        "data"
+      ],
+      "passed": true
+    }
+  ]
+}
