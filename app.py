@@ -1,5 +1,7 @@
 import streamlit as st
-from src.chat import ask
+import requests
+
+API_URL = "http://127.0.0.1:8000"
 
 # Page config
 st.set_page_config(
@@ -13,7 +15,7 @@ st.title("🔧 dbt Knowledge Assistant")
 st.caption("Ask anything about dbt Core — powered by RAG")
 st.divider()
 
-# Chat history - persists during session
+# Chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -35,17 +37,28 @@ if question := st.chat_input("Ask a question about dbt..."):
         "content": question
     })
 
-    # Get answer
+    # Call FastAPI backend
     with st.chat_message("assistant"):
         with st.spinner("Searching knowledge base..."):
-            result = ask(question)
-        
-        st.markdown(result["answer"])
-        st.caption(f"📄 Sources: {', '.join(result['sources'])}")
+            try:
+                response = requests.post(
+                    f"{API_URL}/chat",
+                    json={"question": question}
+                )
+                result = response.json()
+                answer = result["answer"]
+                sources = result["sources"]
+            except Exception as e:
+                answer = f"Error connecting to API: {str(e)}"
+                sources = []
+
+        st.markdown(answer)
+        if sources:
+            st.caption(f"📄 Sources: {', '.join(sources)}")
 
     # Save assistant message
     st.session_state.messages.append({
         "role": "assistant",
-        "content": result["answer"],
-        "sources": result["sources"]
+        "content": answer,
+        "sources": sources
     })
