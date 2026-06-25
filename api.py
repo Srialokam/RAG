@@ -11,8 +11,13 @@ app = FastAPI(
 )
 
 # Request/Response models
+class Message(BaseModel):
+    role: str
+    content: str
+
 class QuestionRequest(BaseModel):
     question: str
+    chat_history: list[Message] = []
 
 class AnswerResponse(BaseModel):
     answer: str
@@ -30,7 +35,8 @@ def health_check():
 def chat(request: QuestionRequest):
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty")
-    result = ask(request.question)
+    history = [{"role": m.role, "content": m.content} for m in request.chat_history]
+    result = ask(request.question, history)
     return AnswerResponse(
         answer=result["answer"],
         sources=result["sources"]
